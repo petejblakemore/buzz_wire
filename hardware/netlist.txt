@@ -1,0 +1,135 @@
+# Buzz Wire v1 stripboard netlist. 24 strips (rows 1-24, A-X) x 37 holes.
+# P row col net = pin/lead in hole; C row col = track cut; L r1 c1 r2 c2 = wire link
+# ---- ESP32 DevKit V1 left pins (col 7), antenna towards row A
+P 4 7 EN
+P 5 7 VP
+P 6 7 VN
+P 7 7 D34
+P 8 7 D35
+P 9 7 WIRE
+P 10 7 START
+P 11 7 LIFE2
+P 12 7 LIFE3
+P 13 7 FINISH
+P 14 7 D14
+P 15 7 D12
+P 16 7 D13
+P 17 7 GND
+P 18 7 VIN
+# ---- ESP32 right pins (col 17)
+P 4 17 GREEN
+P 5 17 AMBER
+P 6 17 TX0
+P 7 17 RX0
+P 8 17 LIFE1
+P 9 17 BOO
+P 10 17 CHEER
+P 11 17 D5
+P 12 17 LAUGH
+P 13 17 ATTRACT
+P 14 17 SPARE
+P 15 17 D2
+P 16 17 D15
+P 17 17 GND
+P 18 17 V3
+# split ESP32 pin rows (not Q: GND both sides)
+C 4 12
+C 5 12
+C 6 12
+C 7 12
+C 8 12
+C 9 12
+C 10 12
+C 11 12
+C 12 12
+C 13 12
+C 14 12
+C 15 12
+C 16 12
+C 18 12
+# ---- game inputs: off-board pads
+P 9 1 WIRE
+P 10 1 START
+P 13 1 FINISH
+P 17 1 GND
+# ---- left LEDs: 330R upright across cut at col 3 (cols 2-4), pad in col 1
+P 11 4 LIFE2
+P 11 1 LED2A
+P 11 2 LED2A
+C 11 3
+P 12 4 LIFE3
+P 12 1 LED3A
+P 12 2 LED3A
+C 12 3
+# ---- right LEDs: 330R across cut at col 20, pad in col 24
+P 4 19 GREEN
+P 4 23 LEDGA
+P 4 24 LEDGA
+C 4 20
+P 5 19 AMBER
+P 5 23 LEDAA
+P 5 24 LEDAA
+C 5 20
+P 8 19 LIFE1
+P 8 23 LED1A
+P 8 24 LED1A
+C 8 20
+P 17 20 GND
+# ---- DY-SV17F IO row (col 25), IO0 at top, GND at bottom
+P 9 25 BOO
+P 10 25 CHEER
+P 11 25 IO2
+P 12 25 LAUGH
+P 13 25 ATTRACT
+P 14 25 SPARE
+P 15 25 IO6
+P 16 25 IO7
+P 17 25 GND
+C 11 21
+C 15 21
+C 16 21
+# ---- DY-SV17F CON row (col 33), CON1 at bottom, SPK+ at top
+P 9 33 SPKP
+P 10 33 SPKN
+P 11 33 DACL
+P 12 33 DACR
+P 13 33 V33
+P 14 33 V5
+P 15 33 CON3
+P 16 33 CON2
+P 17 33 GND
+C 9 29
+C 10 29
+C 11 29
+C 12 29
+C 13 29
+C 14 29
+C 15 29
+C 16 29
+# speaker pads, mode resistors
+P 9 37 SPKP
+P 10 37 SPKN
+P 13 35 V33
+P 16 35 CON2
+P 15 37 CON3
+P 17 37 GND
+P 14 36 V5
+P 17 34 GND
+# ---- JP1 and power rails (W = GND, X = 5V)
+P 18 1 VIN
+P 19 1 V5
+P 19 2 V5
+C 19 3
+P 23 21 GND
+P 23 32 GND
+P 23 34 GND
+P 23 37 GND
+P 24 2 V5
+P 24 21 V5
+P 24 32 V5
+P 24 36 V5
+P 24 37 V5
+# ---- links
+L 19 2 24 2
+L 17 34 23 34
+L 14 36 24 36
